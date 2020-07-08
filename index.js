@@ -4,7 +4,7 @@ require("babel-polyfill");
 
 const _ = require('lodash');
 const Dynalite = require('dynalite');
-const chokidar = require('graceful-chokidar');
+const chokidar = require('chokidar');
 const AWS = require('aws-sdk');
 
 const DEFAULT_PORT = 4567;
@@ -60,7 +60,7 @@ class ServerlessDynalite {
         this.hooks = {
             "dynalite:start:startHandler": this.startHandler.bind(this),
             "dynalite:watch:watchHandler": this.watchHandler.bind(this),
-            "before:offline:start:init": this.watchHandler.bind(this),
+            "before:offline:start": this.watchHandler.bind(this),
             "before:offline:start:end": this.endHandler.bind(this)
         };
     }

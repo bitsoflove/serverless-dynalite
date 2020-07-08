@@ -1,11 +1,15 @@
 {
-  "name": "serverless-dynalite",
+  "name": "@bitsoflove/serverless-dynalite",
   "version": "1.4.0",
   "description": "Serverless plugin to run Dynalite locally to handle DynamoDB development. Can watch for table config changes.",
   "main": "distribution/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel index.js --out-dir distribution"
+    "build": "babel index.js --out-dir distribution",
+    "prepublish": "npm run-script build"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@bitsoflove"
   },
   "babel": {
     "presets": [
@@ -16,7 +20,7 @@
   "prepublishOnly": "npm run build",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sdd/serverless-dynalite.git"
+    "url": "git+https://github.com/bitsoflove/serverless-dynalite.git"
   },
   "keywords": [
     "serverless-plugin",
@@ -27,15 +31,15 @@
   "author": "Scott Donnelly",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sdd/serverless-dynalite/issues"
+    "url": "https://github.com/bitsoflove/serverless-dynalite/issues"
   },
-  "homepage": "https://github.com/sdd/serverless-dynalite#readme",
+  "homepage": "https://github.com/bitsoflove/serverless-dynalite#readme",
   "dependencies": {
     "aws-sdk": "^2.41.0",
     "babel-polyfill": "^6.26.0",
-    "dynalite": "^1.2.0",
-    "graceful-chokidar": "^0.1.0",
-    "lodash": "^4.17.4"
+    "chokidar": "3.4.0",
+    "dynalite": "3.2.0",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
